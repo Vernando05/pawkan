@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`signin state 1`] = `
+<div
+  data-app="true"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col col-12"
+    >
+      <p>
+        Hi jack
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`signout state 1`] = `
+<div
+  data-app="true"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col col-12"
+    >
+      <p>
+        Hi there!
+      </p>
+    </div>
+  </div>
+</div>
+`;

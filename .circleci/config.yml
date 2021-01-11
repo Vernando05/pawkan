@@ -1,0 +1,137 @@
+commands:
+  build:
+    description: |
+      Create a production build
+    steps:
+    - run:
+        command: mkdir -p artifacts
+        name: Ensure artifacts directory is present
+    - run: echo "$SERVERCRT" | base64 -d >> server.crt
+    - run: echo "$SERVERKEY" | base64 -d >> server.key
+    - run: NODE_ENV=production npm run build
+    - run: cp -r dist artifacts
+  test:
+    description: |
+      Test using Jest and Cypress
+    steps:
+    - run: echo "$SERVERCRT" | base64 -d >> server.crt
+    - run: echo "$SERVERKEY" | base64 -d >> server.key  
+    - run: npm run test:unit -- --collectCoverage
+    - run: npm run test-ci
+    - codecov/upload:
+        file: coverage/clover.xml
+  deploy:
+    description: |
+      Deploy to Firebase hosting
+    steps:    
+    - run: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN" --only hosting
+  lint:
+    description: |
+      Lint
+    steps:
+    - run: npm run lint
+  install:
+    description: |
+      Install dependencies
+    steps:
+    - run: npm ci
+orbs:
+  codecov: codecov/codecov@1.1.3
+executors:
+  default:
+    description: |
+      Node 12 runtime environment
+    docker:
+    - image: cypress/browsers:<<parameters.cypress>>
+    parameters:
+      cypress:
+        default: node12.13.0-chrome78-ff70
+        type: string
+jobs:
+  build:
+    description: |
+      Build the application in production mode. The built assets are stored in artifacts.
+    executor: default
+    steps:
+    - attach_workspace:
+        at: ~/
+    - build
+    - persist_to_workspace:
+        paths:
+        - project   
+        root: ~/
+    - store_artifacts:
+        path: ./artifacts
+  test:
+    description: |
+      Run the tests and generate coverage reports.
+    executor: default
+    steps:
+    - attach_workspace:
+        at: ~/
+    - test
+  deploy:
+    description: |
+      Deploy to production
+    executor: default
+    steps:
+    - attach_workspace:
+        at: ~/
+    - deploy
+  lint:
+    description: |
+      Run lint on the source code
+    executor: default
+    steps:
+    - attach_workspace:
+        at: ~/
+    - lint
+  install:
+    description: |
+      Install dependencies. Checkout is called before install. (Optional) To prevent checkout from being called, pass your steps to before_install.
+    executor: default
+    parameters:
+      before_install:
+        default:
+        - checkout
+        description: |
+          Steps to be executed before restoring cache and running install. Default is to run 'checkout' command.
+        type: steps
+    steps:
+    - steps: <<parameters.before_install>>
+    - restore_cache:
+        key: v1-node-modules-{{ checksum "package-lock.json" }}
+    - install
+    - persist_to_workspace:
+        paths:
+        - project
+        - .cache/Cypress
+        root: ~/
+    - save_cache:
+        key: v1-node-modules-{{ checksum "package-lock.json" }}
+        paths:
+        - ~/.npm
+        - ~/.cache
+version: 2.1
+workflows:
+  version: 2.1
+  front-test-build-deploy:
+    jobs:
+    - install
+    - test:
+        requires:
+        - install
+    - build:
+        filters:
+          branches:
+            only:
+            - dev
+        requires:
+        - test
+    - deploy:
+        filters:
+          branches:
+            only:
+            - dev
+        requires:
+        - build

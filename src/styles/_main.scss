@@ -1,0 +1,82 @@
+//variables
+$body-font-family: 'Rubik';
+
+$typoOptions: display-4, display-3, display-2, display-1, headline, title, subtitle-1, subtitle-2, body-1, body-2, caption, overline;
+#app {
+  font-family: $body-font-family, sans-serif !important;
+  @each $typoOption in $typoOptions {
+    .#{$typoOption} {
+      font-family: $body-font-family, sans-serif !important;
+    }
+  }
+}
+
+// dimensions
+.w-100 {
+    width: 100%;
+}
+// visibility
+.visible {
+  visibility: visible;
+}
+.invisible {
+  visibility: hidden;
+}
+// text transform
+.text-normal {
+  text-transform: none;
+}
+// material field
+.mstyle-field {
+  position: relative;
+  &:before, &:after {
+    bottom: -1px;
+    content: "";
+    left: 0;
+    position: absolute;
+    transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+    width: 100%;
+  }
+  &:before {
+    border-color: rgba(0, 0, 0, 0.42);
+    border-style: solid;
+    border-width: thin 0 0 0;
+  }  
+  &:after {
+    border-color: currentColor;
+    border-style: solid;
+    border-width: thin 0 thin 0;
+    transform: scaleX(0);
+  }
+}
+.mstyle-field-error .mstyle-field {
+  &:before {
+    border-color: rgb(255, 82, 82);
+  }
+
+}
+// vue tel input
+.mstyle .vue-tel-input {
+  border-radius: 0;
+  border: none;
+  &:focus-within {
+    box-shadow: none !important;
+  }
+}
+// miscellaneous
+.v-text-field.v-input--dense .v-input__prepend-inner .v-input__icon > .v-icon {
+    margin-top: 2px !important;
+}
+.component-fade-enter-active, .component-fade-leave-active {
+  transition: opacity .3s ease;
+}
+.component-fade-enter, .component-fade-leave-to
+/* .component-fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+.v-btn {
+  letter-spacing: 0em;
+}
+.v-application ul.firebaseui-idp-list {
+  padding-left: 0;
+}

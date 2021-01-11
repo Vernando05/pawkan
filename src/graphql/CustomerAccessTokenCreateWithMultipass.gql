@@ -1,0 +1,13 @@
+#import "./CustomerAccessTokenFragment.gql"
+#import "./CustomerUserErrorsFragment.gql"
+
+mutation customerAccessTokenCreateWithMultipass($multipassToken: String!) {
+  customerAccessTokenCreateWithMultipass(multipassToken: $multipassToken) {
+    customerAccessToken {
+      ...customerAccessToken
+    }
+    customerUserErrors {
+      ...customerUserErrors
+    }
+  }
+}

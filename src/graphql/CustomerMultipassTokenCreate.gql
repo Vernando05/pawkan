@@ -1,0 +1,8 @@
+mutation createMultipassToken($data: CustomerInput!) {
+  createMultipassToken(data: $data) {
+    firstName
+    lastName
+    email
+    token
+  }  
+}

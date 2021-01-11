@@ -1,0 +1,5 @@
+fragment customerUserErrors on CustomerUserError {
+  code
+  field
+  message
+}

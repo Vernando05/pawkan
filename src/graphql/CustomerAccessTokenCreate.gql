@@ -1,0 +1,13 @@
+#import "./CustomerAccessTokenFragment.gql"
+#import "./CustomerUserErrorsFragment.gql"
+
+mutation customerAccessTokenCreate($inputCustomerAccessTokenCreate: CustomerAccessTokenCreateInput!) {
+  customerAccessTokenCreate(input: $inputCustomerAccessTokenCreate) {
+    customerAccessToken {
+      ...customerAccessToken
+    }
+    customerUserErrors {
+      ...customerUserErrors
+    }
+  }
+}

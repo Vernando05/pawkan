@@ -1,0 +1,13 @@
+#import "./CustomerFragment.gql"
+#import "./CustomerUserErrorsFragment.gql"
+
+mutation customerCreate($inputCustomerCreate: CustomerCreateInput!) {
+  customerCreate(input: $inputCustomerCreate) {
+    customer {
+      ...customer
+    }
+    customerUserErrors {
+      ...customerUserErrors
+    }
+  }
+}

@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`user filling the signup form 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -6,11 +6,11 @@
+       
+      <span>
+        <form>
+          <span>
+            <div
+-             class=\\"v-input theme--light v-text-field\\"
++             class=\\"v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted\\"
+            >
+              <div
+                class=\\"v-input__control\\"
+              >
+                <div
+@@ -18,11 +18,11 @@
+                >
+                  <div
+                    class=\\"v-text-field__slot\\"
+                  >
+                    <label
+-                     class=\\"v-label theme--light\\"
++                     class=\\"v-label v-label--active theme--light\\"
+                      for=\\"input-8\\"
+                      style=\\"left: 0px; position: absolute;\\"
+                    >
+                      First name
+                    </label>
+@@ -46,20 +46,20 @@
+                    />
+                  </div>
+                  <div
+                    class=\\"v-counter theme--light\\"
+                  >
+-                   0 / 30
++                   4 / 30
+                  </div>
+                </div>
+              </div>
+            </div>
+          </span>
+           
+          <span>
+            <div
+-             class=\\"v-input theme--light v-text-field\\"
++             class=\\"v-input theme--light v-text-field v-text-field--is-booted\\"
+            >
+              <div
+                class=\\"v-input__control\\"
+              >
+                <div
+@@ -104,11 +104,11 @@
+            </div>
+          </span>
+           
+          <span>
+            <div
+-             class=\\"v-input theme--light v-text-field\\"
++             class=\\"v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted\\"
+            >
+              <div
+                class=\\"v-input__control\\"
+              >
+                <div
+@@ -116,11 +116,11 @@
+                >
+                  <div
+                    class=\\"v-text-field__slot\\"
+                  >
+                    <label
+-                     class=\\"v-label theme--light\\"
++                     class=\\"v-label v-label--active theme--light\\"
+                      for=\\"input-16\\"
+                      style=\\"left: 0px; position: absolute;\\"
+                    >
+                      E-mail
+                    </label>
+@@ -167,11 +167,11 @@
+              >
+                <span
+                  class=\\"vti__selection\\"
+                >
+                  <div
+-                   class=\\"vti__flag\\"
++                   class=\\"vti__flag id\\"
+                  />
+                   
+                  <!---->
+                   
+                  <span
+@@ -4340,11 +4340,11 @@
+                autocomplete=\\"on\\"
+                class=\\"vti__input\\"
+                id=\\"telInput0\\"
+                maxlength=\\"25\\"
+                name=\\"telephone\\"
+-               placeholder=\\"\\"
++               placeholder=\\"+62 812-345-678\\"
+                tabindex=\\"0\\"
+                type=\\"tel\\"
+              />
+            </div>
+             
+@@ -4355,11 +4355,11 @@
+            </p>
+          </div>
+           
+          <span>
+            <div
+-             class=\\"v-input theme--light v-text-field\\"
++             class=\\"v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted\\"
+            >
+              <div
+                class=\\"v-input__control\\"
+              >
+                <div
+@@ -4367,11 +4367,11 @@
+                >
+                  <div
+                    class=\\"v-text-field__slot\\"
+                  >
+                    <label
+-                     class=\\"v-label theme--light\\"
++                     class=\\"v-label v-label--active theme--light\\"
+                      for=\\"input-22\\"
+                      style=\\"left: 0px; position: absolute;\\"
+                    >
+                      Password
+                    </label>
+@@ -4396,20 +4396,20 @@
+                    />
+                  </div>
+                  <div
+                    class=\\"v-counter theme--light\\"
+                  >
+-                   0 / 10
++                   9 / 10
+                  </div>
+                </div>
+              </div>
+            </div>
+          </span>
+           
+          <span>
+            <div
+-             class=\\"v-input theme--light v-text-field\\"
++             class=\\"v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted\\"
+            >
+              <div
+                class=\\"v-input__control\\"
+              >
+                <div
+@@ -4417,11 +4417,11 @@
+                >
+                  <div
+                    class=\\"v-text-field__slot\\"
+                  >
+                    <label
+-                     class=\\"v-label theme--light\\"
++                     class=\\"v-label v-label--active theme--light\\"
+                      for=\\"input-26\\"
+                      style=\\"left: 0px; position: absolute;\\"
+                    >
+                      Confirm Password
+                    </label>
+@@ -4446,11 +4446,11 @@
+                    />
+                  </div>
+                  <div
+                    class=\\"v-counter theme--light\\"
+                  >
+-                   0 / 10
++                   9 / 10
+                  </div>
+                </div>
+              </div>
+            </div>
+          </span>
+@@ -4504,12 +4504,11 @@
+              </div>
+            </div>
+          </span>
+           
+          <button
+-           class=\\"mr-4 v-btn v-btn--disabled v-btn--flat theme--light v-size--default\\"
+-           disabled=\\"disabled\\"
++           class=\\"mr-4 v-btn v-btn--contained v-btn--is-elevated v-btn--has-bg theme--light v-size--default\\"
+            type=\\"submit\\"
+          >
+            <span
+              class=\\"v-btn__content\\"
+            >"
+`;

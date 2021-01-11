@@ -1,0 +1,7 @@
+#import "./CustomerFragment.gql"
+
+query customer($customerAccessToken: String!) {
+  customer(customerAccessToken: $customerAccessToken) {
+    ...customer
+  }
+}

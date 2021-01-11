@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`user filling the signin form 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -8,11 +8,11 @@
+        <form
+          role=\\"form\\"
+        >
+          <span>
+            <div
+-             class=\\"v-input theme--light v-text-field\\"
++             class=\\"v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted\\"
+            >
+              <div
+                class=\\"v-input__control\\"
+              >
+                <div
+@@ -20,11 +20,11 @@
+                >
+                  <div
+                    class=\\"v-text-field__slot\\"
+                  >
+                    <label
+-                     class=\\"v-label theme--light\\"
++                     class=\\"v-label v-label--active theme--light\\"
+                      for=\\"input-8\\"
+                      style=\\"left: 0px; position: absolute;\\"
+                    >
+                      E-mail
+                    </label>
+@@ -52,11 +52,11 @@
+            </div>
+          </span>
+           
+          <span>
+            <div
+-             class=\\"v-input theme--light v-text-field\\"
++             class=\\"v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted\\"
+            >
+              <div
+                class=\\"v-input__control\\"
+              >
+                <div
+@@ -64,11 +64,11 @@
+                >
+                  <div
+                    class=\\"v-text-field__slot\\"
+                  >
+                    <label
+-                     class=\\"v-label theme--light\\"
++                     class=\\"v-label v-label--active theme--light\\"
+                      for=\\"input-12\\"
+                      style=\\"left: 0px; position: absolute;\\"
+                    >
+                      Password
+                    </label>
+@@ -93,20 +93,19 @@
+                    />
+                  </div>
+                  <div
+                    class=\\"v-counter theme--light\\"
+                  >
+-                   0 / 10
++                   9 / 10
+                  </div>
+                </div>
+              </div>
+            </div>
+          </span>
+           
+          <button
+-           class=\\"mr-4 mt-4 v-btn v-btn--disabled v-btn--flat theme--light v-size--default\\"
+-           disabled=\\"disabled\\"
++           class=\\"mr-4 mt-4 v-btn v-btn--contained v-btn--is-elevated v-btn--has-bg theme--light v-size--default\\"
+            type=\\"submit\\"
+          >
+            <span
+              class=\\"v-btn__content\\"
+            >"
+`;

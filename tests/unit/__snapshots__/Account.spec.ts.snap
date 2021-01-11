@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`signin state 1`] = `
+<div
+  data-app="true"
+>
+  <div>
+    <button
+      class="v-btn v-btn--depressed v-btn--flat v-btn--outlined theme--light v-size--default"
+      style="min-width: 100%;"
+      type="button"
+    >
+      <span
+        class="v-btn__content"
+      >
+        Sign out
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`signout signin state 1`] = `
+<div
+  data-app="true"
+>
+  <div>
+    <div
+      class="row justify-center"
+    >
+      <div
+        class="col"
+      >
+        <div
+          class="mb-2"
+        >
+          <div
+            id="firebaseui-auth-container"
+          />
+           
+          <div
+            class="text-center"
+            id="loader"
+          >
+            Loading...
+          </div>
+           
+          <div
+            class="text-center"
+            style="display: none;"
+          >
+            <a
+              class="text-normal mb-4 elevation-3 justify-start v-btn v-btn--contained v-btn--is-elevated v-btn--has-bg v-btn--router theme--light v-size--default main"
+              data-testid="button-signin"
+              href="#/signin"
+              style="width: 220px;"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mr-3 mdi mdi-email theme--light"
+                />
+                Sign in with Email
+              </span>
+            </a>
+             
+            <a
+              class="text-normal elevation-3 justify-start v-btn v-btn--depressed v-btn--flat v-btn--has-bg v-btn--router theme--light v-size--default accent"
+              href="#/signup"
+              style="width: 220px;"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mr-3 mdi mdi-clipboard-account theme--light"
+                />
+                Sign up
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

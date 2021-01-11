@@ -1,0 +1,17 @@
+#import "./CustomerFragment.gql"
+#import "./CustomerAccessTokenFragment.gql"
+#import "./CustomerUserErrorsFragment.gql"
+
+mutation customerUpdate($customerAccessToken: String!, $customer: CustomerUpdateInput!) {
+  customerUpdate(customerAccessToken: $customerAccessToken, customer: $customer) {
+    customer {
+      ...customer
+    }
+    customerAccessToken {
+      ...customerAccessToken
+    }
+    customerUserErrors {
+      ...customerUserErrors
+    }
+  }
+}

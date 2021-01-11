@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`telephone input 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -1,10 +1,10 @@
+  <div
+    data-app=\\"true\\"
+  >
+    <div
+-     class=\\"mstyle mb-2\\"
++     class=\\"mstyle mb-2 mstyle-field-error\\"
+    >
+      <label
+        class=\\"v-label theme--light d-block mt-5 mb-2\\"
+        for=\\"telInput0\\"
+      >
+@@ -13,32 +13,32 @@
+       
+      <div
+        class=\\"mstyle-field vue-tel-input\\"
+      >
+        <div
+-         class=\\"vti__dropdown\\"
++         class=\\"vti__dropdown open\\"
+          tabindex=\\"0\\"
+        >
+          <span
+            class=\\"vti__selection\\"
+          >
+            <div
+-             class=\\"vti__flag\\"
++             class=\\"vti__flag id\\"
+            />
+             
+            <!---->
+             
+            <span
+              class=\\"vti__dropdown-arrow\\"
+            >
+-             ▼
++             ▲
+            </span>
+          </span>
+           
+          <ul
+            class=\\"vti__dropdown-list below\\"
+-           style=\\"display: none;\\"
++           style=\\"\\"
+          >
+            <li
+              class=\\"vti__dropdown-item preferred\\"
+            >
+              <div"
+`;

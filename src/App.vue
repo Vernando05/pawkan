@@ -63,7 +63,7 @@
       app
       grow
     >
-      <v-btn :to="{ name: 'Home', params: { lang: currentLanguage } }" class="px-2 mb-0">
+      <v-btn :to="{ name: 'Home' }" class="px-2 mb-0">
         <span>{{ $t('home') }}</span>
         <v-icon>mdi-home</v-icon>
       </v-btn>
@@ -79,7 +79,7 @@
         <span>{{ $t('cart') }}</span>
         <v-icon>mdi-cart</v-icon>
       </v-btn>
-      <v-btn :to="{ name: 'Account', params: { lang: currentLanguage }  }" class="px-2">
+      <v-btn :to="{ name: 'Account' }" class="px-2">
         <span>{{ $t('account') }}</span>
         <v-icon>mdi-account</v-icon>
       </v-btn>
@@ -89,7 +89,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { mapGetters, mapActions, mapMutations } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import clientStorage from '@/plugins/vue-cookies'
 import { Language } from '@/types'
 import find from 'lodash/find'
@@ -121,7 +121,6 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([
-      'currentLanguage',
       'customerAccessToken'
     ]),
     currentLang (): string  { 
@@ -143,11 +142,6 @@ export default Vue.extend({
       }
     }
   },
-  watch: {
-    currentLanguage () {
-      this.$router.replace({ params: { lang: this.currentLanguage } })
-    }
-  },
   created () {
     const customerAccessToken = clientStorage.getItem('customerAccessToken')
     if (customerAccessToken) {
@@ -155,15 +149,11 @@ export default Vue.extend({
     }
   },
   methods: {
-    ...mapActions([
-      'setCurrentLanguage'
-    ]),
     ...mapMutations([
       'setCustomerAccessToken'
     ]),
     clickLang (lang: string): void {
       this.$root.$i18n.locale = lang
-      this.setCurrentLanguage(lang)
     },
     goPrev () {
       this.$router.go(-1)

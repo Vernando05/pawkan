@@ -11,7 +11,8 @@
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
     "serve-prd": "vue-cli-service serve --mode production",
     "test-ci:e2e": "vue-cli-service test:e2e --headless --url https://localhost:8081 --browser chrome",
-    "test-ci": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test serve-prd https-get://localhost:8081 test-ci:e2e"
+    "test-ci": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test serve-prd https-get://localhost:8081 test-ci:e2e",
+    "i18n-extract": "node ./node_modules/vue-i18n-extract/bin/vue-i18n-extract.js \"report\" \"-v\" \"./src/**/*.?(js|vue)\" \"-l\" \"./src/locales/*.json\""
   },
   "dependencies": {
     "apollo-cache-inmemory": "^1.6.6",
@@ -80,6 +81,7 @@
     "vue-cli-plugin-apollo": "^0.22.2",
     "vue-cli-plugin-i18n": "^1.0.1",
     "vue-cli-plugin-vuetify": "^2.0.9",
+    "vue-i18n-extract": "^1.1.10",
     "vue-jest": "^3.0.7",
     "vue-template-compiler": "^2.6.12",
     "vue-typed-mixins": "^0.2.0",

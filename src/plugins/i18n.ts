@@ -4,8 +4,10 @@ import requireContext from 'require-context.macro'
 
 Vue.use(VueI18n)
 
+const loadedLanguages = [process.env.VUE_APP_I18N_LOCALE]
+
 function loadLocaleMessages (): LocaleMessages {
-  const locales = requireContext('../locales', true, /[A-Za-z0-9-_,\s]+\.json$/i)
+  const locales = requireContext('../locales', true, /en\.json$/i)
   const messages: LocaleMessages = {}
   locales.keys().forEach(key => {
     const matched = key.match(/([A-Za-z0-9-_]+)\./i)
@@ -17,30 +19,36 @@ function loadLocaleMessages (): LocaleMessages {
   return messages
 }
 
-function checkDefaultLanguage (): string | null {
-  let matched = null
-  const languages = Object.getOwnPropertyNames(loadLocaleMessages())
-  languages.forEach(lang => {
-    if (lang === navigator.language) {
-      matched = lang
-    }
-  })
-  if (!matched) {
-    languages.forEach(lang => {
-      const languagePartials = navigator.language.split('-')[0]
-      if (lang === languagePartials) {
-        matched = lang
-      }
-    })
-  }
-  return matched
-}
-
-export const selectedLocale = checkDefaultLanguage() || process.env.VUE_APP_I18N_LOCALE || 'en'
-export const languages = Object.getOwnPropertyNames(loadLocaleMessages())
-
-export default new VueI18n({
-  locale: selectedLocale,
-  fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || 'en',
+export const i18n = new VueI18n({
+  locale: process.env.VUE_APP_I18N_LOCALE,
+  fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || process.env.VUE_APP_I18N_LOCALE,
   messages: loadLocaleMessages()
 })
+
+function setI18nLanguage (lang: string): string {
+  i18n.locale = lang
+  // axios.defaults.headers.common['Accept-Language'] = lang
+  document.querySelector('html')?.setAttribute('lang', lang)
+  return lang
+}
+
+export function loadLanguageAsync (lang: string): Promise<string> {
+  if (i18n.locale === lang) {
+    return Promise.resolve(setI18nLanguage(lang))
+  }
+  if (loadedLanguages.includes(lang)) {
+    return Promise.resolve(setI18nLanguage(lang))
+  }
+
+  return import(/* webpackChunkName: "lang-[request]" */ `@/locales/${lang}.json`).then(
+    messages => {
+      console.log(messages)
+      i18n.setLocaleMessage(lang, messages.default)
+      loadedLanguages.push(lang)
+      return setI18nLanguage(lang)
+    }
+  ).catch(err => {
+    console.log(err)
+    return 'locale_not_available'
+  })
+}

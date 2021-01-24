@@ -12,8 +12,7 @@ test('signout signin state', async () => {
   const store = {
     state: {},
     getters: {
-      customerAccessToken: jest.fn(),
-      currentLanguage: jest.fn()
+      customerAccessToken: jest.fn()
     }
   }
   const { container, queryByText } = renderComponent(Account, {
@@ -28,8 +27,7 @@ test('signin state', async () => {
   const store = {
     state: {},
     getters: {
-      customerAccessToken: jest.fn(() => 't0k3n'),
-      currentLanguage: jest.fn()
+      customerAccessToken: jest.fn(() => 't0k3n')
     }
   }
   const { container, queryByText } = renderComponent(Account, {

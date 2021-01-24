@@ -1,18 +1,17 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import store from '@/store'
-import { languages } from '@/plugins/i18n'
+import { loadLanguageAsync } from '@/plugins/i18n'
 import Container from '../views/Container.vue'
 
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   {
-    path: '/',
-    name: 'root'
+    path: '/', redirect: () => `/${process.env.VUE_APP_I18N_LOCALE}`
   },
   {
-    path: '/:lang',
+    path: '/:lang?',
     component: Container,
     children: [
       {
@@ -58,7 +57,6 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  console.log(from)
   const route = { 
     fullPath: from.fullPath,
     hash: from.hash,
@@ -69,18 +67,18 @@ router.beforeEach((to, from, next) => {
     query: from.query
   }
   store.commit('setPrevNav', route)
+  to.params.lang = to.params.lang ? to.params.lang : process.env.VUE_APP_I18N_LOCALE as string
   const lang = to.params.lang
   if (/^[a-zA-Z]{2}(?:-[a-zA-Z]{2}){0,2}$/.test(to.params.lang)) {
-    if (languages.includes(lang)) {
-      if (store.getters.currentLanguage !== lang) {
-        store.dispatch('setCurrentLanguage', lang)
+    loadLanguageAsync(lang).then((lang) => {
+      if (lang === 'locale_not_available') {
+        next({ path: `${to.path.replace(/[a-zA-Z]{2}(?:-[a-zA-Z]{2}){0,2}/, process.env.VUE_APP_I18N_LOCALE as string)}` })
+      } else {
+        next()
       }
-      return next()
-    } else {
-      return next({ path: store.getters.currentLanguage })
-    }
+    })    
   } else {
-    return next({ path: store.getters.currentLanguage + to.path })
+    next({ path: `/${process.env.VUE_APP_I18N_LOCALE}${to.path}` })
   }
 })
 

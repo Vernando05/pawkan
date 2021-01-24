@@ -38,7 +38,6 @@
     computed: {
       ...mapGetters([
         'customerAccessToken',
-        'currentLanguage',
         'prevNav'
       ])
     },

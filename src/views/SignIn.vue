@@ -33,7 +33,7 @@
 <script lang="ts">
   import mixins from 'vue-typed-mixins'
   import { mapGetters, mapMutations } from 'vuex'
-  import i18n from '@/plugins/i18n'
+  import { i18n } from '@/plugins/i18n'
   import { required, email, min, max } from 'vee-validate/dist/rules'
   import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
   import startCase from 'lodash/startCase'  

@@ -3,8 +3,8 @@
     <div id="firebaseui-auth-container"></div>
     <div id="loader" class="text-center" v-show="isLoading">Loading...</div>
     <div v-show="!isLoading" class="text-center">
-      <v-btn class="text-normal mb-4 elevation-3 justify-start" :to="{ name: 'SignIn', params: { lang: 'en' } }" width="220px" color="main" data-testid="button-signin"><v-icon class="mr-3">mdi-email</v-icon>{{ $t('signInWithEmail') }}</v-btn>
-      <v-btn class="text-normal elevation-3 justify-start" :to="{ name: 'SignUp', params: { lang: currentLanguage } }" width="220px" color="accent" depressed><v-icon class="mr-3">mdi-clipboard-account</v-icon>{{ $t('signUp') }}</v-btn>
+      <v-btn class="text-normal mb-4 elevation-3 justify-start" :to="{ name: 'SignIn' }" width="220px" color="main" data-testid="button-signin"><v-icon class="mr-3">mdi-email</v-icon>{{ $t('signInWithEmail') }}</v-btn>
+      <v-btn class="text-normal elevation-3 justify-start" :to="{ name: 'SignUp' }" width="220px" color="accent" depressed><v-icon class="mr-3">mdi-clipboard-account</v-icon>{{ $t('signUp') }}</v-btn>
     </div>
   </div>
 </template>
@@ -31,7 +31,6 @@
     computed: {
       ...mapGetters([
         'customerAccessToken',
-        'currentLanguage',
         'prevNav'
       ])
     },

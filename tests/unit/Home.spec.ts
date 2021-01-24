@@ -4,8 +4,7 @@ import Home from '@/views/Home.vue'
 test('signout state', async () => {
   const store = {
     getters: {
-      customerAccessToken: jest.fn(),
-      currentLanguage: jest.fn()
+      customerAccessToken: jest.fn()
     }
   }
   const { container, queryByText } = renderComponent(Home, {
@@ -19,8 +18,7 @@ test('signout state', async () => {
 test('signin state', async () => {
   const store = {
     getters: {
-      customerAccessToken: jest.fn(() => true),
-      currentLanguage: jest.fn()
+      customerAccessToken: jest.fn(() => true)
     }
   }
   const { container, queryByText } = renderComponent(Home, {

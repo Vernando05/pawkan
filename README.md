@@ -35,7 +35,10 @@ npm run test:unit
 ```
 npm run test:e2e
 ```
-
+### List unusedand missing locales entry
+```
+npm run i18n-extract
+```
 ### Lints and fixes files
 ```
 npm run lint

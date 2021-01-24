@@ -77,7 +77,7 @@
 <script lang="ts">
   import mixins from 'vue-typed-mixins'  
   import { mapGetters, mapMutations } from 'vuex'
-  import i18n from '@/plugins/i18n'
+  import { i18n } from '@/plugins/i18n'
   import { required, email, min, max, confirmed } from 'vee-validate/dist/rules'
   import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
   import TelephoneInput from '@/components/TelephoneInput.vue'
@@ -87,7 +87,7 @@
   import clientStorageResetToken from '@/mixins/clientStorageResetToken'
 
   setInteractionMode('eager')
-  
+
   extend('required', {
     ...required,
     message: '{_field_} ' + i18n.t('cannotBeEmpty').toLowerCase()

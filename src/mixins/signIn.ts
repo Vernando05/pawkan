@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { CustomerUserError, CustomerAccessTokenCreatePayload } from 'shopify-storefront-api-typings'
+import { CustomerUserError, CustomerAccessTokenCreatePayload } from '@/types/shopify-storefront'
 import customerAccessTokenCreate from '@/graphql/CustomerAccessTokenCreate.gql'
 
 export default Vue.extend({

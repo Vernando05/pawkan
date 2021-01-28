@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { Customer, CustomerAccessTokenCreateWithMultipassPayload, CustomerUserError } from 'shopify-storefront-api-typings' 
+import { Customer, CustomerAccessTokenCreateWithMultipassPayload, CustomerUserError } from '@/types/shopify-storefront' 
 import { CustomerInput } from '@/types'                                                  
 import createMultipassToken from '@/graphql/CustomerMultipassTokenCreate.gql'
 import customerAccessTokenCreateWithMultipass from '@/graphql/CustomerAccessTokenCreateWithMultipass.gql'

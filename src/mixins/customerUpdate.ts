@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { CustomerUserError, CustomerUpdatePayload } from 'shopify-storefront-api-typings'
+import { CustomerUserError, CustomerUpdatePayload } from '@/types/shopify-storefront'
 import { CustomerInput } from '@/types'
 import customerUpdate from '@/graphql/CustomerUpdate.gql'
 

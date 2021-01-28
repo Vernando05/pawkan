@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { CustomerUserError, CustomerCreatePayload } from 'shopify-storefront-api-typings'
+import { CustomerUserError, CustomerCreatePayload } from '@/types/shopify-storefront'
 import customerCreate from '@/graphql/CustomerCreate.gql'
 
 export default Vue.extend({

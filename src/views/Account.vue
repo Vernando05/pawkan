@@ -14,9 +14,8 @@
   import SignInProvider from '@/components/SignInProvider.vue'
   import { mapGetters, mapMutations } from 'vuex'
   import signIn from '@/mixins/signIn'
-  import { UserError } from "shopify-storefront-api-typings"
   import clientStorage from '@/plugins/vue-cookies'
-  import { CustomerUserError, CustomerAccessTokenCreatePayload } from 'shopify-storefront-api-typings'
+  import { UserError, CustomerUserError, CustomerAccessTokenCreatePayload } from '@/types/shopify-storefront'
   import customer from '@/graphql/Customer.gql'
   import customerAccessTokenCreateWithMultipass from '@/graphql/CustomerAccessTokenCreateWithMultipass.gql'
   import customerAccessTokenDelete from '@/graphql/CustomerAccessTokenDelete.gql'

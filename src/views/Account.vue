@@ -2,10 +2,29 @@
   <div>
     <v-row v-if="!customerAccessToken" justify="center">
       <v-col>
-        <SignInProvider class="mb-2" />
+        <SignInProvider :customer="customer" class="mb-2" />
       </v-col>    
     </v-row>
-    <v-btn v-else @click="destroyAccessToken" min-width="100%" outlined>{{ $t('signOut') }}</v-btn>
+    <v-list shaped>
+      <v-list-item-group color="primary">
+        <v-list-item v-if="customerAccessToken" :to="{ name: 'AccountEdit' }">
+          <v-list-item-icon>
+            <v-icon>mdi-account</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>{{ $t('profile') }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item v-if="customerAccessToken" @click="destroyAccessToken">
+          <v-list-item-icon>
+            <v-icon>mdi-logout-variant</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>{{ $t('signOut') }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list-item-group>
+    </v-list>
   </div>
 </template>
 
@@ -13,14 +32,11 @@
   import mixins from 'vue-typed-mixins'
   import SignInProvider from '@/components/SignInProvider.vue'
   import { mapGetters, mapMutations } from 'vuex'
-  import signIn from '@/mixins/signIn'
-  import clientStorage from '@/plugins/vue-cookies'
-  import { UserError, CustomerUserError, CustomerAccessTokenCreatePayload } from '@/types/shopify-storefront'
+  import signOut from '@/mixins/signOut'
+  import { UserError } from '@/types/shopify-storefront'
   import customer from '@/graphql/Customer.gql'
-  import customerAccessTokenCreateWithMultipass from '@/graphql/CustomerAccessTokenCreateWithMultipass.gql'
-  import customerAccessTokenDelete from '@/graphql/CustomerAccessTokenDelete.gql'
 
-  export default mixins(signIn).extend({
+  export default mixins(signOut).extend({
     name: 'Account',
     components: {
       SignInProvider
@@ -31,9 +47,6 @@
         titleTemplate: '%s | Pawkan - Your best pet care'      
       }    
     },
-    data: () => ({
-      errorMessages: [] as CustomerUserError[]      
-    }),
     computed: {
       ...mapGetters([
         'customerAccessToken',
@@ -54,48 +67,13 @@
       ...mapMutations([
         'removeCustomerAccessToken'
       ]),
-      async createUser (): Promise<void> {
-        this.errorMessages = []
-        try {
-          const result = await this.$apollo.mutate({
-            mutation: customerAccessTokenCreateWithMultipass,
-            variables: {
-              multipassToken: ''
-            }
-          })          
-          const { customerAccessTokenCreate: { customerAccessToken, customerUserErrors } }: { customerAccessTokenCreate: CustomerAccessTokenCreatePayload } = result.data
-          if (customerUserErrors.length) {
-            this.errorMessages = customerUserErrors
-          } else
-          if (customerAccessToken) {            
-            clientStorage.removeItem('customerAccessToken')
-            clientStorage.removeItem('customerAccessTokenExpiresAt')
-            clientStorage.setItem('customerAccessToken', customerAccessToken.accessToken )
-            clientStorage.setItem('customerAccessTokenExpiresAt', customerAccessToken.accessToken )
-            this.$router.push(this.prevNav)
-          }   
-        } catch(error) {
-          console.log(error)
-          alert(error)
-        }
-      },
       async destroyAccessToken (): Promise<void> {
-        try {
-          const result = await this.$apollo.mutate({
-            mutation: customerAccessTokenDelete,
-            variables: {
-              customerAccessToken: this.customerAccessToken
-            }
-          })
-          const { userErrors }: { userErrors: UserError[] } = result.data.customerAccessTokenDelete
-          if (userErrors.length) {
-            console.log(userErrors)
-          } else {
-            // this.removeCustomerAccessToken()
-          }
-        } catch (error) {
-          console.log(error)
-          alert(error)
+        const result = await this.signOut_deleteToken(this.customerAccessToken)
+        const { userErrors }: { userErrors: UserError[] } = result
+        if (userErrors.length) {
+          console.log(userErrors)
+        } else {
+          this.removeCustomerAccessToken()
         }
       }
     }

@@ -1,5 +1,5 @@
 # Pawkan
-[![CircleCI](https://img.shields.io/circleci/build/github/Vernando05/pawkan/dev?token=f090900e3caf00e87a6a0891116f2313c002e28d)](https://app.circleci.com/pipelines/github/Vernando05/pawkan?branch=master)
+[![CircleCI](https://img.shields.io/circleci/build/github/Vernando05/pawkan/dev?token=f090900e3caf00e87a6a0891116f2313c002e28d)](https://app.circleci.com/pipelines/github/Vernando05/pawkan?branch=dev)
 [![Codecov branch](https://img.shields.io/codecov/c/github/Vernando05/pawkan/dev)](https://codecov.io/gh/Vernando05/pawkan)
 [![Vuetify](https://img.shields.io/badge/Vuetify-2.x-brightgreen)](https://vuetifyjs.com/en/)
 [![Apollo GraphQL](https://img.shields.io/badge/Apollo_GraphQL-3.x-blue)](https://www.apollographql.com/)

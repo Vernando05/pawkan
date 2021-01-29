@@ -31,6 +31,7 @@
 </template>
 
 <script lang="ts">
+  import store from '@/store'
   import mixins from 'vue-typed-mixins'
   import { mapGetters, mapMutations } from 'vuex'
   import { i18n } from '@/plugins/i18n'
@@ -39,6 +40,7 @@
   import startCase from 'lodash/startCase'  
   import signIn from '@/mixins/signIn'
   import clientStorageResetToken from '@/mixins/clientStorageResetToken'
+  import { CustomerUserError } from '@/types/shopify-storefront'
 
   setInteractionMode('aggressive')
   
@@ -74,6 +76,11 @@
         titleTemplate: '%s | Pawkan - Your best pet care'      
       }    
     },
+    data: () => ({
+      email: '' as string,
+      password: '' as string,
+      errorMessages: [] as CustomerUserError[]
+    }),
     computed: {
       ...mapGetters([
         'prevNav'
@@ -89,7 +96,7 @@
       async submit (): Promise<void> {
         const isValid = await (this.$refs.observer as InstanceType<typeof ValidationProvider>).validate()
         if (isValid) {
-          const result = await this.signIn_createToken()
+          const result = await this.signIn_createToken({ email: this.email, password: this.password })
           if (result.customerUserErrors.length) {
             this.errorMessages = result.customerUserErrors
           } else
@@ -102,6 +109,13 @@
             this.$router.push(this.prevNav)
           }
         }        
+      }
+    },
+    beforeRouteEnter (...[, , next]) {
+      if (store.getters.customerAccessToken) {
+        next({ name: 'Home', params: { lang: 'en' } })
+      } else {
+        next()
       }
     }
   })

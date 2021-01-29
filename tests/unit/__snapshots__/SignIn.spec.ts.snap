@@ -26,7 +26,7 @@ exports[`user filling the signin form 1`] = `
                     <label
 -                     class=\\"v-label theme--light\\"
 +                     class=\\"v-label v-label--active theme--light\\"
-                      for=\\"input-8\\"
+                      for=\\"input-10\\"
                       style=\\"left: 0px; position: absolute;\\"
                     >
                       E-mail
@@ -52,7 +52,7 @@ exports[`user filling the signin form 1`] = `
                     <label
 -                     class=\\"v-label theme--light\\"
 +                     class=\\"v-label v-label--active theme--light\\"
-                      for=\\"input-12\\"
+                      for=\\"input-14\\"
                       style=\\"left: 0px; position: absolute;\\"
                     >
                       Password
@@ -72,9 +72,9 @@ exports[`user filling the signin form 1`] = `
           </span>
            
           <button
--           class=\\"mr-4 mt-4 v-btn v-btn--disabled v-btn--flat theme--light v-size--default\\"
+-           class=\\"mr-4 mt-4 v-btn v-btn--disabled v-btn--has-bg theme--light v-size--default\\"
 -           disabled=\\"disabled\\"
-+           class=\\"mr-4 mt-4 v-btn v-btn--contained v-btn--is-elevated v-btn--has-bg theme--light v-size--default\\"
++           class=\\"mr-4 mt-4 v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default\\"
             type=\\"submit\\"
           >
             <span

@@ -22,5 +22,13 @@
   "account": "Account",
   "signUp": "Sign up",
   "signInWithEmail": "Sign in with Email",
-  "signOut": "Sign out"
+  "signOut": "Sign out",
+  "profile": "Profile",
+  "signIn": "Sign in",
+  "cancel_change_password": "Cancel change password",
+  "change_password": "Change password",
+  "close": "Close",
+  "saving": "Saving",
+  "oops_something_is_not_right": "Oops something is not right",
+  "updated": "Updated"
 }

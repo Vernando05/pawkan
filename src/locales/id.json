@@ -22,5 +22,13 @@
   "account": "Akun",
   "signUp": "Daftar",
   "signInWithEmail": "Masuk menggunakan E-mail",
-  "signOut": "Keluar"
+  "signOut": "Keluar",
+  "profile": "Profil",
+  "signIn": "Masuk",
+  "cancel_change_password": "Batal ubah katasandi",
+  "change_password": "Ganti katasandi",
+  "close": "Tutup",
+  "saving": "Menyimpan",
+  "oops_something_is_not_right": "Oops ada kesalahan",
+  "updated": "Perbarui berhasil"
 }

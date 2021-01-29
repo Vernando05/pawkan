@@ -5,17 +5,71 @@ exports[`signin state 1`] = `
   data-app="true"
 >
   <div>
-    <button
-      class="v-btn v-btn--depressed v-btn--flat v-btn--outlined theme--light v-size--default"
-      style="min-width: 100%;"
-      type="button"
+    <!---->
+     
+    <div
+      class="v-list v-sheet v-sheet--shaped theme--light"
+      role="list"
     >
-      <span
-        class="v-btn__content"
+      <div
+        class="v-item-group theme--light v-list-item-group primary--text"
+        role="listbox"
       >
-        Sign out
-      </span>
-    </button>
+        <a
+          aria-current="page"
+          aria-selected="false"
+          class="v-item--active v-list-item--active v-list-item v-list-item--link theme--light"
+          href="#/"
+          role="listitem"
+          tabindex="0"
+        >
+          <div
+            class="v-list-item__icon"
+          >
+            <i
+              aria-hidden="true"
+              class="v-icon notranslate mdi mdi-account theme--light"
+            />
+          </div>
+           
+          <div
+            class="v-list-item__content"
+          >
+            <div
+              class="v-list-item__title"
+            >
+              Profile
+            </div>
+          </div>
+        </a>
+         
+        <div
+          aria-selected="false"
+          class="v-list-item v-list-item--link theme--light"
+          role="listitem"
+          tabindex="0"
+        >
+          <div
+            class="v-list-item__icon"
+          >
+            <i
+              aria-hidden="true"
+              class="v-icon notranslate mdi mdi-logout-variant theme--light"
+            />
+          </div>
+           
+          <div
+            class="v-list-item__content"
+          >
+            <div
+              class="v-list-item__title"
+            >
+              Sign out
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -34,23 +88,70 @@ exports[`signout signin state 1`] = `
         <div
           class="mb-2"
         >
+          <!---->
+           
+          <div
+            class="mt-4 v-sheet theme--light"
+          >
+            <div
+              aria-busy="true"
+              aria-live="polite"
+              class="v-skeleton-loader mx-auto mb-4 v-skeleton-loader--is-loading theme--light"
+              role="alert"
+              style="width: 220px;"
+            >
+              <div
+                class="v-skeleton-loader__button v-skeleton-loader__bone"
+              />
+            </div>
+             
+            <div
+              aria-busy="true"
+              aria-live="polite"
+              class="v-skeleton-loader mx-auto mb-4 v-skeleton-loader--is-loading theme--light"
+              role="alert"
+              style="width: 220px;"
+            >
+              <div
+                class="v-skeleton-loader__button v-skeleton-loader__bone"
+              />
+            </div>
+             
+            <div
+              aria-busy="true"
+              aria-live="polite"
+              class="v-skeleton-loader mx-auto mb-4 v-skeleton-loader--is-loading theme--light"
+              role="alert"
+              style="width: 220px;"
+            >
+              <div
+                class="v-skeleton-loader__button v-skeleton-loader__bone"
+              />
+            </div>
+             
+            <div
+              aria-busy="true"
+              aria-live="polite"
+              class="v-skeleton-loader mx-auto mb-4 v-skeleton-loader--is-loading theme--light"
+              role="alert"
+              style="width: 220px;"
+            >
+              <div
+                class="v-skeleton-loader__button v-skeleton-loader__bone"
+              />
+            </div>
+          </div>
+           
           <div
             id="firebaseui-auth-container"
           />
            
           <div
             class="text-center"
-            id="loader"
-          >
-            Loading...
-          </div>
-           
-          <div
-            class="text-center"
             style="display: none;"
           >
             <a
-              class="text-normal mb-4 elevation-3 justify-start v-btn v-btn--contained v-btn--is-elevated v-btn--has-bg v-btn--router theme--light v-size--default main"
+              class="text-normal mb-4 elevation-3 justify-start v-btn v-btn--is-elevated v-btn--has-bg v-btn--router theme--light v-size--default main"
               data-testid="button-signin"
               href="#/signin"
               style="width: 220px;"
@@ -67,7 +168,7 @@ exports[`signout signin state 1`] = `
             </a>
              
             <a
-              class="text-normal elevation-3 justify-start v-btn v-btn--depressed v-btn--flat v-btn--has-bg v-btn--router theme--light v-size--default accent"
+              class="text-normal elevation-3 justify-start v-btn v-btn--has-bg v-btn--router theme--light v-size--default accent"
               href="#/signup"
               style="width: 220px;"
             >
@@ -84,6 +185,16 @@ exports[`signout signin state 1`] = `
           </div>
         </div>
       </div>
+    </div>
+     
+    <div
+      class="v-list v-sheet v-sheet--shaped theme--light"
+      role="list"
+    >
+      <div
+        class="v-item-group theme--light v-list-item-group primary--text"
+        role="listbox"
+      />
     </div>
   </div>
 </div>

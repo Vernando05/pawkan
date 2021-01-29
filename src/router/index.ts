@@ -45,6 +45,15 @@ const routes: Array<RouteConfig> = [
           showBackButton: true,
           showPageTitle: 'Account'
         }
+      },
+      {
+        path: 'account/edit',
+        name: 'AccountEdit',
+        component: () => import('../views/AccountEdit.vue'),
+        meta: {
+          showBackButton: true,
+          showPageTitle: 'Edit account'
+        }
       }
     ]
   }
@@ -62,19 +71,24 @@ router.beforeEach((to, from, next) => {
     hash: from.hash,
     meta: from.meta,
     name: from.name || 'Home',
-    params: from.params,
+    params: from.name ? from.params : { lang: 'en' },
     path: from.path,
     query: from.query
   }
   store.commit('setPrevNav', route)
   to.params.lang = to.params.lang ? to.params.lang : process.env.VUE_APP_I18N_LOCALE as string
   const lang = to.params.lang
-  if (/^[a-zA-Z]{2}(?:-[a-zA-Z]{2}){0,2}$/.test(to.params.lang)) {
+  const languageCode = /^[a-zA-Z]{2}(?:-[a-zA-Z]{2}){0,2}$/
+  if (languageCode.test(to.params.lang)) {
     loadLanguageAsync(lang).then((lang) => {
       if (lang === 'locale_not_available') {
         next({ path: `${to.path.replace(/[a-zA-Z]{2}(?:-[a-zA-Z]{2}){0,2}/, process.env.VUE_APP_I18N_LOCALE as string)}` })
       } else {
-        next()
+        if (languageCode.test(to.path.split('/')[1])) {
+          next()  
+        } else {
+          next({ path: `/${lang}${to.path}` })
+        }
       }
     })    
   } else {

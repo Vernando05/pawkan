@@ -42,7 +42,6 @@ export function loadLanguageAsync (lang: string): Promise<string> {
 
   return import(/* webpackChunkName: "lang-[request]" */ `@/locales/${lang}.json`).then(
     messages => {
-      console.log(messages)
       i18n.setLocaleMessage(lang, messages.default)
       loadedLanguages.push(lang)
       return setI18nLanguage(lang)

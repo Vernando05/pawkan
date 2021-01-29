@@ -1,7 +1,15 @@
 <template>
   <div>
-    <div id="firebaseui-auth-container"></div>
-    <div id="loader" class="text-center" v-show="isLoading">Loading...</div>
+    <div v-if="errorMessages.length">
+      <v-alert :key="index" v-for="(el, index) in errorMessages" type="error">{{ el.message }}</v-alert>
+    </div>
+    <v-sheet v-show="isLoading" class="mt-4">
+      <v-skeleton-loader width="220px" class="mx-auto mb-4" type="button"></v-skeleton-loader>
+      <v-skeleton-loader width="220px" class="mx-auto mb-4" type="button"></v-skeleton-loader>
+      <v-skeleton-loader width="220px" class="mx-auto mb-4" type="button"></v-skeleton-loader>
+      <v-skeleton-loader width="220px" class="mx-auto mb-4" type="button"></v-skeleton-loader>            
+    </v-sheet>
+    <div id="firebaseui-auth-container"></div>    
     <div v-show="!isLoading" class="text-center">
       <v-btn class="text-normal mb-4 elevation-3 justify-start" :to="{ name: 'SignIn' }" width="220px" color="main" data-testid="button-signin"><v-icon class="mr-3">mdi-email</v-icon>{{ $t('signInWithEmail') }}</v-btn>
       <v-btn class="text-normal elevation-3 justify-start" :to="{ name: 'SignUp' }" width="220px" color="accent" depressed><v-icon class="mr-3">mdi-clipboard-account</v-icon>{{ $t('signUp') }}</v-btn>
@@ -23,6 +31,9 @@
 
   export default mixins(signInMultipass, customerUpdate, clientStorageResetToken).extend ({
     name: 'SignInProvider',
+    props: {
+      customer: { type: Object, required: false }
+    },
     data: () => ({
       ui: null,
       isLoading: true as boolean,
@@ -56,12 +67,10 @@
       initAuth (): void {
         firebase.auth().setPersistence(process.env.NODE_ENV === 'test' ? firebase.auth.Auth.Persistence.NONE : firebase.auth.Auth.Persistence.LOCAL).then(() => {
           const ui = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(firebase.auth())
-          console.log(ui.isPendingRedirect())
           if (!ui.isPendingRedirect()) {
             ui.start('#firebaseui-auth-container', {
               callbacks: {
                 signInSuccessWithAuthResult: (authResult) => {
-                  console.log(authResult)
                   const profile = authResult.additionalUserInfo.profile
                   this.user = { firstName: profile.given_name, lastName: profile.family_name, email: profile.email }
                   this.signInWithMultipassToken(this.user)               
@@ -123,3 +132,11 @@
     }
   })
 </script>
+<style lang="scss">
+  .firebaseui-idp-button {
+    min-height: 36px;
+  }
+  .v-skeleton-loader__button {
+    width: 100%
+  }
+</style>

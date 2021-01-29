@@ -9,6 +9,7 @@
       @blur="onBlur"
       :preferredCountries="preferredCountries"
       :dynamicPlaceholder="dynamicPlaceholder"
+
       class="mstyle-field"
     ></vue-tel-input>
     <p :class="[errorMessage? '' : 'invisible', 'v-text-field__details caption error--text mb-0']">{{ errorMessage }}</p>
@@ -56,6 +57,7 @@
     created () {
       this.telId = 'telInput' + telId.toString()
       telId += 1
+      this.mobilePhone = this.value
     },
     methods: {
       onBlur (): void {

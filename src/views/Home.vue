@@ -1,10 +1,12 @@
 <template>
-  <v-row>
-    <v-col cols="12">
-      <p v-if="customer">Hi {{ customer.firstName }}</p>
-      <p v-else>Hi there!</p>
-    </v-col>
-  </v-row>
+  <div>
+    <v-row>
+      <v-col cols="12">
+        <p v-if="customer">Hi {{ customer.firstName }}</p>
+        <p v-else>Hi there!</p>
+      </v-col>
+    </v-row>
+  </div>
 </template>
 
 <script lang="ts">

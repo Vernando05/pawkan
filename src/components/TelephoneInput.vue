@@ -2,14 +2,12 @@
   <div :ref="telId" class="mstyle mb-2">
     <label v-if="label" :for="telId" class="v-label theme--light d-block mt-5 mb-2">{{ label }}</label>
     <vue-tel-input
-      :inputId="telId"
+      :inputOptions="{ id: telId }"
       v-model="mobilePhone"
       @input="onInput"
       @validate="onValidate"
       @blur="onBlur"
       :preferredCountries="preferredCountries"
-      :dynamicPlaceholder="dynamicPlaceholder"
-
       class="mstyle-field"
     ></vue-tel-input>
     <p :class="[errorMessage? '' : 'invisible', 'v-text-field__details caption error--text mb-0']">{{ errorMessage }}</p>
@@ -20,7 +18,7 @@
   import Vue from 'vue'
   import { VueTelInput } from 'vue-tel-input'
   import startCase from 'lodash/startCase'
-  
+  import 'vue-tel-input/dist/vue-tel-input.css'  
   let telId = 0
 
   export default Vue.extend ({
@@ -31,7 +29,6 @@
     props: {
       label: { type: String, required: false },
       preferredCountries: { type: Array, required: false },
-      dynamicPlaceholder: { type: Boolean, required: false },
       value: { type: String, required: false, default: ''}
     },
     data () {
@@ -68,15 +65,21 @@
           (this.$refs[this.telId] as InstanceType<typeof HTMLDivElement>).classList.remove('mstyle-field-error')
         }
       },
-      onInput (number: string, { number: { e164 } }: { number: { e164: string } }): void {
+      onInput (_number: string, { number }: { number: string }): void {
         this.isMobilePhoneDirty = true
-        this.mobilePhone = e164 || ''
-        this.$emit('input', e164)
+        this.mobilePhone = number || ''
+        this.$emit('input', number)
       },
-      onValidate ({ isValid }: { isValid: boolean }): void {
-        this.isMobileNumberValid = isValid
-        this.$emit('validate', isValid)
+      onValidate ({ valid }: { valid: boolean }): void {
+        this.isMobileNumberValid = valid
+        this.$emit('validate', valid)
       }
     }
   })
 </script>
+
+<style lang="scss" scoped>
+  ::v-deep ul.vti__dropdown-list {
+    padding-left: 0 !important;
+  }
+</style>

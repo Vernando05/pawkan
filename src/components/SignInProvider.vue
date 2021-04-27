@@ -92,7 +92,8 @@
                   ],
                   customParameters: {
                     prompt: 'select_account'
-                  }
+                  },
+                  clientId: '347560649742-3g4a02kgurkicaq8tcn9dqhn18ur6pbq.apps.googleusercontent.com'
                 },
                 {
                   provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
@@ -100,7 +101,7 @@
                     'public_profile',
                     'email'
                   ]             
-                }
+                },
               ]
             })
           }        

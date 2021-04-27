@@ -4,15 +4,17 @@ exports[`signin state 1`] = `
 <div
   data-app="true"
 >
-  <div
-    class="row"
-  >
+  <div>
     <div
-      class="col col-12"
+      class="row"
     >
-      <p>
-        Hi jack
-      </p>
+      <div
+        class="col col-12"
+      >
+        <p>
+          Hi jack
+        </p>
+      </div>
     </div>
   </div>
 </div>
@@ -22,15 +24,17 @@ exports[`signout state 1`] = `
 <div
   data-app="true"
 >
-  <div
-    class="row"
-  >
+  <div>
     <div
-      class="col col-12"
+      class="row"
     >
-      <p>
-        Hi there!
-      </p>
+      <div
+        class="col col-12"
+      >
+        <p>
+          Hi there!
+        </p>
+      </div>
     </div>
   </div>
 </div>

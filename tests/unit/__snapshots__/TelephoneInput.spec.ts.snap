@@ -12,12 +12,12 @@ exports[`telephone input 1`] = `
     <div
 -     class=\\"mstyle mb-2\\"
 +     class=\\"mstyle mb-2 mstyle-field-error\\"
+      dynamicplaceholder=\\"true\\"
     >
       <label
         class=\\"v-label theme--light d-block mt-5 mb-2\\"
         for=\\"telInput0\\"
-      >
-@@ -13,32 +13,32 @@
+@@ -14,29 +14,29 @@
        
       <div
         class=\\"mstyle-field vue-tel-input\\"
@@ -34,9 +34,7 @@ exports[`telephone input 1`] = `
 -             class=\\"vti__flag\\"
 +             class=\\"vti__flag id\\"
             />
-             
             <!---->
-             
             <span
               class=\\"vti__dropdown-arrow\\"
             >
@@ -44,7 +42,6 @@ exports[`telephone input 1`] = `
 +             ▲
             </span>
           </span>
-           
           <ul
             class=\\"vti__dropdown-list below\\"
 -           style=\\"display: none;\\"

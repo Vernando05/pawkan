@@ -20,7 +20,7 @@ exports[`signin state 1`] = `
           aria-selected="false"
           class="v-item--active v-list-item--active v-list-item v-list-item--link theme--light"
           href="#/"
-          role="listitem"
+          role="option"
           tabindex="0"
         >
           <div
@@ -46,7 +46,7 @@ exports[`signin state 1`] = `
         <div
           aria-selected="false"
           class="v-list-item v-list-item--link theme--light"
-          role="listitem"
+          role="option"
           tabindex="0"
         >
           <div

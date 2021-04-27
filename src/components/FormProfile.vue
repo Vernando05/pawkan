@@ -38,7 +38,7 @@
           @validate="isTelValid"
           :label="$t('mobile')"
           :preferredCountries="['id']"
-          :dynamicPlaceholder="true" />
+        />
         <ValidationProvider v-if="!isFieldHide('password')" v-slot="{ errors }" name="password" rules="required|min:6|max:10" vid="confirmation">
           <v-text-field
             v-model="password"

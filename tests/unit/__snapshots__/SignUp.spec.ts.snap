@@ -89,24 +89,11 @@ exports[`user filling the signup form 1`] = `
 -                     class=\\"vti__flag\\"
 +                     class=\\"vti__flag id\\"
                     />
-                     
                     <!---->
-                     
                     <span
-@@ -4341,11 +4341,11 @@
-                  autocomplete=\\"on\\"
-                  class=\\"vti__input\\"
-                  id=\\"telInput0\\"
-                  maxlength=\\"25\\"
-                  name=\\"telephone\\"
--                 placeholder=\\"\\"
-+                 placeholder=\\"+62 812-345-678\\"
-                  tabindex=\\"0\\"
-                  type=\\"tel\\"
-                />
-              </div>
-               
-@@ -4356,11 +4356,11 @@
+                      class=\\"vti__dropdown-arrow\\"
+                    >
+@@ -3370,11 +3370,11 @@
               </p>
             </div>
              
@@ -119,7 +106,7 @@ exports[`user filling the signup form 1`] = `
                   class=\\"v-input__control\\"
                 >
                   <div
-@@ -4368,11 +4368,11 @@
+@@ -3382,11 +3382,11 @@
                   >
                     <div
                       class=\\"v-text-field__slot\\"
@@ -132,7 +119,7 @@ exports[`user filling the signup form 1`] = `
                       >
                         Password
                       </label>
-@@ -4397,20 +4397,20 @@
+@@ -3411,20 +3411,20 @@
                       />
                     </div>
                     <div
@@ -155,7 +142,7 @@ exports[`user filling the signup form 1`] = `
                   class=\\"v-input__control\\"
                 >
                   <div
-@@ -4418,11 +4418,11 @@
+@@ -3432,11 +3432,11 @@
                   >
                     <div
                       class=\\"v-text-field__slot\\"
@@ -168,7 +155,7 @@ exports[`user filling the signup form 1`] = `
                       >
                         Confirm Password
                       </label>
-@@ -4447,11 +4447,11 @@
+@@ -3461,11 +3461,11 @@
                       />
                     </div>
                     <div
@@ -181,7 +168,7 @@ exports[`user filling the signup form 1`] = `
                 </div>
               </div>
             </span>
-@@ -4504,12 +4504,11 @@
+@@ -3518,12 +3518,11 @@
                 </div>
               </div>
             </span>

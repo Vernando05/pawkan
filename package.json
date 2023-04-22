@@ -65,7 +65,7 @@
     "eslint": "^7.25.0",
     "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-vue": "^7.9.0",
-    "firebase-tools": "^9.10.0",
+    "firebase-tools": "^11.28.0",
     "flush-promises": "^1.0.2",
     "graphql-tag": "^2.12.3",
     "isomorphic-fetch": "^3.0.0",
